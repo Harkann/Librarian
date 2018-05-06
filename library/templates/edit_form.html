@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+{% if add_success %}
+<div class="alert alert-success alert-auto-dissmiss">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  Object successfully added
+</div>
+{% endif %}
+<div class="alert alert-info">
+  Add a new item
+</div>
+<div class="container">
+  <form action="" method="post", class="form">
+      {% csrf_token %}
+      {% bootstrap_form form layout="inline" %}
+      {% buttons %}
+        <button type="submit" class="btn btn-success btn-block"/>Submit</button>
+      {% endbuttons %}
+  </form>
+</div>
+
+
+
+{% endblock %}
