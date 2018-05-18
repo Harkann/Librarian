@@ -8,7 +8,7 @@ Database Project for the L3 at the ENS Paris-Saclay (2018)
 * virtualenv
 
 ## Setup
-	```bash
+	```
 	git clone https://github.com/Harkann/Librarian.git
 	cd Librarian
 	virtualenv -p python3 venv
@@ -17,7 +17,7 @@ Database Project for the L3 at the ENS Paris-Saclay (2018)
 We setup a virtualenv to install required packages locally.
 
 ## Running in dev
-	```bash
+	```
 	python3 manage.py runserver
 	```
 You should now have a server running on localhost:8000
