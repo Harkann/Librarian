@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+<br/>
+<div class="container">
+<div class="card" style="width:400px">
+  <img class="card-img-top text-center" src="img_avatar1.png" alt="PLACEHOLDER IMAGE">
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      <a href={{a.wiki_page}}>{{a}}</a>
+    </h4>
+    <ul class="list-group">
+      {% if a.birthdate %}
+      <li class="list-group-item list-group-item-dark">
+        Birthdate: {{a.birthdate}}
+      </li>
+      {% endif %}
+      {% if a.death %}
+      <li class="list-group-item list-group-item-dark">
+        Death: {{a.death}}
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+</div>
+
+{% endblock %}

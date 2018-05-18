@@ -58,7 +58,7 @@ class Author(models.Model):
 		blank=True)
 	birthdate = models.DateField(null=True)
 	death = models.DateField(null=True)
-	wiki_page = models.URLField(null=True)
+	wiki_page = models.URLField(blank=True)
 
 	def __str__(self):
 		return ('{} {} {}'.format(self.surname, self.pseudo, self.name).strip())

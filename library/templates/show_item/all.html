@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+<br/>
+<div class="container">
+{% if books%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark text-center">Books</li>
+  <li class="list-group-item">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author.s</th>
+        <th>Genre.s</th>
+      </tr>
+    </thead>
+    {% for b in books%}
+    <tbody>
+      <tr>
+        <td><a href="/book/{{b.id}}"> {{b.original_title}} </a></td>
+        <td>
+          {% for author in b.authors.all%}
+          {{author}},
+          {% endfor %}
+        </td>
+        <td>
+          {% for genre in b.genres.all%}
+          {{genre}}
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </li>
+</ul> 
+{% endif%}
+
+{% if authors%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark text-center">Books</li>
+  <li class="list-group-item">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Death</th>
+      </tr>
+    </thead>
+    {% for a in authors%}
+    <tbody>
+      <tr>
+        <td><a href="/authors/{{a.id}}"> {{a}} </a></td>
+        <td>
+           {% if a.death %}
+           {{ a.death }}
+           {% endif %}
+        </td>
+        <td>
+          {% if a.birthdate %}
+           {{ a.birthdate }}
+           {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </li>
+</ul> 
+{% endif%}
+</div>
+
+{% endblock %}
