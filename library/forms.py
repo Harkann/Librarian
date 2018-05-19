@@ -1,4 +1,4 @@
-from django.forms import ModelForm, ValidationError
+from django.forms import ModelForm, ValidationError, Form, CharField, BooleanField
 import library.models as models
 
 class BookForm(ModelForm):
@@ -48,3 +48,26 @@ class AuthorForm(ModelForm):
 		if form_empty:
 			raise ValidationError("You must fill at least one field!")
 		return cleaned_data   # Important that clean should return cleaned_data!
+
+class CommentForm(ModelForm):
+	class Meta:
+		model = models.Comment
+		exclude = ['item', 'about']
+
+	def save(self, id):
+		comment = super(CommentForm, self).save(commit=False)
+		it = models.Item()
+		it.save()
+		comment.item_id = it.id
+		comment.about_id = id
+		comment.save()
+		return comment
+
+class SearchForm(Form):
+	search_bar = CharField()
+	books = BooleanField(required=False)
+	editors = BooleanField(required=False)
+	editions = BooleanField(required=False)
+	authors = BooleanField(required=False)
+	genres = BooleanField(required=False)
+

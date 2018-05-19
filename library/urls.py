@@ -25,6 +25,7 @@ urlpatterns = [
     path('<str:type>/add/', views.add, name='add'),
     path('<str:type>/add/success/', views.add, {'success': True}),
     path('<str:type>/<int:id>/edit/', views.edit),
+    path('<str:type>/<int:id>/edit/success', views.edit, {'success': True}),
     path('<str:type>/<int:id>/', views.show),
     path('<str:type>/', views.show_all),
     #path('@me/', views.profile)
