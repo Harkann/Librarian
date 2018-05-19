@@ -35,13 +35,17 @@
         </td>
       </tr>
     {% endfor %}
+  </tbody>
+</table>
   </li>
-</ul> 
+</ul>
+<br/>
+
 {% endif%}
 
 {% if authors%}
 <ul class="list-group">
-  <li class="list-group-item list-group-item-dark text-center">Books</li>
+  <li class="list-group-item list-group-item-dark text-center">Author.s</li>
   <li class="list-group-item">
     <table class="table">
     <thead>
@@ -54,7 +58,7 @@
     {% for a in authors%}
     <tbody>
       <tr>
-        <td><a href="/authors/{{a.id}}"> {{a}} </a></td>
+        <td><a href="/author/{{a.id}}"> {{a}} </a></td>
         <td>
            {% if a.death %}
            {{ a.death }}
@@ -67,8 +71,86 @@
         </td>
       </tr>
     {% endfor %}
+  </tbody>
+  </table>
   </li>
 </ul> 
+<br/>
+{% endif%}
+
+{% if editors%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark text-center">Editor.s</li>
+  <li class="list-group-item">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    {% for e in editors%}
+    <tbody>
+      <tr>
+        <td><a href="/editor/{{e.id}}"> {{e}} </a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </li>
+</ul>
+<br/>
+{% endif%}
+
+{% if genres%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark text-center">Genre.s</li>
+  <li class="list-group-item">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    {% for g in genres%}
+    <tbody>
+      <tr>
+        <td><a href="/genre/{{g.id}}"> {{g}} </a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </li>
+</ul> 
+<br/>
+{% endif%}
+
+{% if editions%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark text-center">Edition.s</li>
+  <li class="list-group-item">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Lang</th>
+        <th>Editor</th>
+      </tr>
+    </thead>
+    {% for e in editions%}
+    <tbody>
+      <tr>
+        <td><a href="/edition/{{e.id}}"> {{e.ISBN}} </a></td>
+        <td>{{e.title}}</td>
+        <td>{{e.lang}}</td>
+        <td>{{e.editor}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </li>
+</ul> 
+<br/>
 {% endif%}
 </div>
 

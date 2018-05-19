@@ -6,19 +6,14 @@
   {% endblock %}
   
   {% block card_title%}
-  <a href={{a.wiki_page}}>{{a}}</a>
+  <a href={{g.wiki_page}}>{{g}}</a>
   {% endblock %}
   
   {% block card_content%}
   <ul class="list-group">
-    {% if a.birthdate %}
+    {% if g.description %}
     <li class="list-group-item list-group-item-dark">
-      Birthdate: {{a.birthdate}}
-    </li>
-    {% endif %}
-    {% if a.death %}
-    <li class="list-group-item list-group-item-dark">
-      Death: {{a.death}}
+      Description: {{g.description}}
     </li>
     {% endif %}
   </ul>

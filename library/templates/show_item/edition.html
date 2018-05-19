@@ -1,0 +1,74 @@
+{% extends "show_item/base.html" %}
+{% load bootstrap4 %}
+
+  {% block image %}
+  <img class="card-img-top text-center" alt="PLACEHOLDER IMAGE">
+  {% endblock %}
+  
+  {% block card_title%}
+  {{e.title}}
+  {% endblock %}
+  
+  {% block card_content%}
+  <ul class="list-group">
+    {% if e.ISBN %}
+    <li class="list-group-item list-group-item-dark">
+      ISBN: {{e.ISBN}}
+    </li>
+    {% endif %}
+    {% if e.ISBN13 %}
+    <li class="list-group-item list-group-item-dark">
+      ISBN13: {{e.ISBN13}}
+    </li>
+    {% endif %}
+    {% if e.ISBN13 %}
+    <li class="list-group-item list-group-item-dark">
+      ISBN13: {{e.ISBN13}}
+    </li>
+    {% endif %}
+    {% if e.lang %}
+    <li class="list-group-item list-group-item-dark">
+      Language: {{e.lang}}
+    </li>
+    {% endif %}
+    {% if e.nb_pages %}
+    <li class="list-group-item list-group-item-dark">
+      Pages: {{e.nb_pages}}
+    </li>
+    {% endif %}
+    {% if e.format %}
+    <li class="list-group-item list-group-item-dark">
+      Format: {{e.format}}
+    </li>
+    {% endif %}
+    {% if e.editor %}
+    <li class="list-group-item list-group-item-dark">
+      Editor: {{e.editor}}
+    </li>
+    {% endif %}
+  </ul>
+{% endblock %}
+
+{% block comments %}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-dark">Comment.s</li>
+  {% for com in comments %}
+  <li class="list-group-item">
+    <a href=""> {{com.title}} </a>
+  </li>
+  {% endfor %}
+</ul>
+<br/>
+<div class="alert alert-info">
+  Leave a comment
+</div>
+<div class="container">
+  <form action="" method="post", class="form">
+    {% csrf_token %}
+    {% bootstrap_form form layout="inline" %}
+    {% buttons %}
+    <button type="submit" class="btn btn-success btn-block"/>Submit</button>
+    {% endbuttons %}
+  </form>
+</div>
+{% endblock %}

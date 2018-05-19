@@ -1,10 +1,16 @@
 {% extends "base.html" %}
-
+{% load bootstrap4 %}
 {% block title %}Search{% endblock %}
 
 {% block content%}
-<form type="get" action="." style="margin: 0">
-    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
-    <button id="search_submit" type="submit" >Submit</button>
-</form>
+<br/>
+<div class="container">
+  <form action="" method="post", class="form">
+    {% csrf_token %}
+    {% bootstrap_form form layout="inline" %}
+    {% buttons %}
+    <button type="submit" class="btn btn-success btn-block"/>Search</button>
+    {% endbuttons %}
+  </form>
+</div>
 {% endblock %}

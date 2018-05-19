@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block title %}Item{% endblock %}
+
+{% block content %}
+<br/>
+<div class="container">
+<div class="card text-center">
+  {% block image %}
+  {% endblock %}
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      {% block card_title%}
+      {% endblock %}
+    </h4>
+    {% block card_content%}
+    {% endblock %}
+    <br/>
+    <a href="edit" class="btn btn-info" role="button">Edit</a>
+  </div>
+</div>
+</div>
+<br/>
+{% block comments %}
+{% endblock %}
+{% endblock %}

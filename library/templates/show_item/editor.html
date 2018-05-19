@@ -1,0 +1,13 @@
+{% extends "show_item/base.html" %}
+{% load bootstrap4 %}
+
+  {% block image %}
+  <img class="card-img-top text-center" alt="PLACEHOLDER IMAGE">
+  {% endblock %}
+  
+  {% block card_title%}
+  <a href={{e.wiki_page}}>{{e}}</a>
+  {% endblock %}
+  
+  {% block card_content%}
+  {% endblock %}
