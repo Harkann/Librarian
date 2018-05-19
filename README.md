@@ -11,8 +11,11 @@ Database Project for the L3 at the ENS Paris-Saclay (2018)
 ```
 git clone https://github.com/Harkann/Librarian.git
 cd Librarian
-virtualenv -p python3 venv
+virtualenv -p python3 env
+source ./env/bin/activate
 pip3 install requirements.txt
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 We setup a virtualenv to install required packages locally.
 
